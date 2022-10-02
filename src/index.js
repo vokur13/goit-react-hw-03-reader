@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from './App/App';
-import './index.css';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
+import { GlobalStyle } from 'components/GlobalStyle';
+import { Example1 } from 'components/Example1';
+import { Reader } from 'components/Reader/Reader';
+import './index.css';
+import publications from './publications.json';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const theme = {};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <GlobalStyle />
+      {/* <Example1 /> */}
+      <Reader items={publications} />
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
